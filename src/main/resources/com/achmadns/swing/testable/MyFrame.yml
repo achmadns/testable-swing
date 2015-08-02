@@ -1,0 +1,10 @@
+JFrame():
+ - MigLayout: |
+     [pref]        [grow, 200]
+     "Name:"       txtName
+     cmbCombo+*
+     >btnShow+*
+
+bind:
+ - cmbCombo.model: refList
+ - cmbCombo.selectedItem: selected
