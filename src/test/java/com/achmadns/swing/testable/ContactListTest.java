@@ -11,12 +11,12 @@ import org.testng.annotations.Test;
 
 public class ContactListTest {
 
-	@Test(groups = "look", priority = 20, singleThreaded = true)
+	@Test(groups = "look")
 	public void show() {
 		loadAndShow(ContactList.class, "Look test only");
 	}
 
-	@Test(groups = "look", priority = 21, singleThreaded = true)
+	@Test(groups = "look")
 	public void showFilledPersonBean() {
 		TestLoader<ContactList> loader = load(ContactList.class);
 		PersonBean person = loader.getForm().getPerson();
@@ -38,12 +38,12 @@ public class ContactListTest {
 		assertEquals("Nasirudin", txtLastName.getText());
 	}
 
-	@Test(groups = "look", expectedExceptions = RuntimeException.class, priority = 22, singleThreaded = true)
+	@Test(groups = "look", expectedExceptions = RuntimeException.class)
 	public void showAndClickError() {
 		loadAndShow(ContactList.class, "Click the error button!");
 	}
 
-	@Test(groups = "look", expectedExceptions = RuntimeException.class, priority = 22, singleThreaded = true)
+	@Test(groups = "look", expectedExceptions = RuntimeException.class)
 	public void showAndClickDelegate() {
 		loadAndShow(ContactList.class, "Click the delegate button!");
 	}
