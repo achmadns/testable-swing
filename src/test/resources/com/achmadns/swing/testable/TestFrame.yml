@@ -1,0 +1,7 @@
+JFrame():
+ - JButton(name=btnReload, text=Reload, onAction=reload)
+ - JScrollPane(name=container)
+ - MigLayout: |
+    [grow]
+    >btnReload
+    container+1+* [grow]

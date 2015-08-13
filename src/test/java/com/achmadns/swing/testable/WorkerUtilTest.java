@@ -13,12 +13,8 @@ public class WorkerUtilTest {
 			protected Void doInBackground() throws Exception {
 				return null;
 			}
-		}, new Runnable() {
-
-			@Override
-			public void run() {
-				System.out.println("Alhamduilllah, selesai...");
-			}
-		});
+		}, () -> {
+            System.out.println("Alhamduilllah, selesai...");
+        });
 	}
 }
