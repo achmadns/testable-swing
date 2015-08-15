@@ -3,16 +3,23 @@ package com.achmadns.swing.testable;
 import javax.swing.JPanel;
 
 import org.javabuilders.BuildResult;
+import reactor.Environment;
+import reactor.bus.EventBus;
 
 /**
- * Our user interface container
+ * Our user interface container.
  */
-public class AppForm extends JPanel {
+public class AppForm<T extends AppForm> extends JPanel {
     private static final long serialVersionUID = 5738946067567517085L;
     protected BuildResult buildResult;
     protected AccessLevel accessLevel;
     protected boolean visible;
-    protected Wrapper<AppForm> wrapper;
+    protected Wrapper<T> wrapper;
+    private final EventBus eventBus;
+
+    public AppForm() {
+        eventBus = EventBus.create(Environment.get());
+    }
 
     public void initialize() {
     }
@@ -41,11 +48,19 @@ public class AppForm extends JPanel {
         firePropertyChange("visible", old, visible);
     }
 
-    public Wrapper<AppForm> wrapper() {
+    public Wrapper<T> wrapper() {
         return wrapper;
     }
 
-    public void wrapper(Wrapper<AppForm> wrapper) {
+    public void wrapper(Wrapper<T> wrapper) {
         this.wrapper = wrapper;
+    }
+
+    public EventBus bus() {
+        return eventBus;
+    }
+
+    public void close(){
+        bus().notify("form-closed");
     }
 }

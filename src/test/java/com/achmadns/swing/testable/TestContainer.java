@@ -6,8 +6,13 @@ import org.javabuilders.swing.SwingJavaBuilderConfig;
 import org.javabuilders.swing.plugin.glazedlists.SwingGlazedListsConfig;
 
 import javax.swing.*;
+import reactor.Environment;
 
 public class TestContainer {
+
+    static {
+        Environment.initializeIfEmpty();
+    }
 
     /**
      * Our GUI test main point.

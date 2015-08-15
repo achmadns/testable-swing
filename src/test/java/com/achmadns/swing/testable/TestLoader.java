@@ -136,11 +136,6 @@ public class TestLoader<T extends AppForm> extends JDialog implements
 		return load(clazz).show(title);
 	}
 
-	@Override
-	public void close() {
-		continueTesterThread();
-	}
-
 	/**
 	 * Notify tester thread that we finished testing the form.
 	 */

@@ -145,8 +145,8 @@
         </dependency>
         <!-- Beautiful LAF-->
         <dependency>
-        <groupId>de.sciss</groupId>
-            <artifactId>weblaf</artifactId>
+            <groupId>de.sciss</groupId>
+            <artifactId>weblaf-ui</artifactId>
             <version>1.28</version>
             <exclusions>
                 <exclusion>

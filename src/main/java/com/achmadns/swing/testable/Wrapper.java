@@ -8,11 +8,6 @@ package com.achmadns.swing.testable;
 public interface Wrapper<T extends AppForm> {
 
     /**
-     * Close a form container
-     */
-    void close();
-
-    /**
      * Get form contained
      *
      * @return form instance
