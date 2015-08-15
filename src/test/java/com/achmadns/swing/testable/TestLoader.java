@@ -45,8 +45,7 @@ public class TestLoader<T extends AppForm> extends JDialog implements
 				}
 			}
 		});
-		setForm(form);
-		form.setWrapper((Wrapper<AppForm>) this);
+		form.wrapper((Wrapper<AppForm>) this);
 		build();
 	}
 
@@ -79,7 +78,7 @@ public class TestLoader<T extends AppForm> extends JDialog implements
 		SwingGlazedListsConfig.init(config);
 		// register custom components
 		CustomControlRegistry.register(config);
-		form.setBuildResult(SwingJavaBuilder.build(form));
+		form.buildResult(SwingJavaBuilder.build(form));
 		form.initialize();
 	}
 
@@ -152,12 +151,7 @@ public class TestLoader<T extends AppForm> extends JDialog implements
 	}
 
 	@Override
-	public void setForm(T form) {
-		this.form = form;
-	}
-
-	@Override
-	public T getForm() {
+	public T form() {
 		return form;
 	}
 

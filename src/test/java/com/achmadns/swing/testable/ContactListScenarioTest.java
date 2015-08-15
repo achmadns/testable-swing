@@ -9,7 +9,7 @@ import reactor.bus.Event;
 
 import java.util.concurrent.CountDownLatch;
 
-import static com.achmadns.swing.testable.TestContainer.EVENT_BUS;
+import static com.achmadns.swing.testable.Reactor.BUS;
 import static com.achmadns.swing.testable.TestFrame.WINDOW_CLOSED;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.swing.finder.WindowFinder.findFrame;
@@ -21,7 +21,7 @@ public class ContactListScenarioTest extends AssertJSwingTestngTestCase {
 
     @Override
     protected void onSetUp() {
-        application(TestContainer.class).withArgs(ContactList.class.getName()).start();
+        application(TestContainer.class).withArgs(ContactList.class.getName(), "Contact List Demo").start();
     }
 
     @Test
@@ -31,9 +31,8 @@ public class ContactListScenarioTest extends AssertJSwingTestngTestCase {
         final TestFrame<ContactList> target = (TestFrame<ContactList>) frame.target();
         assertThat(target.form().getPerson().getFirstName()).isEqualTo("Achmad");
         final CountDownLatch counter = new CountDownLatch(1);
-        EVENT_BUS.on($(WINDOW_CLOSED), (Event<?> e) -> {
-            counter.countDown();
-        });
+        BUS.on($(WINDOW_CLOSED), (Event<?> e) -> counter.countDown());
+//        frame.close();
         counter.await();
     }
 

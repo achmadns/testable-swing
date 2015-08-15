@@ -1,20 +1,12 @@
 package com.achmadns.swing.testable;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
-
 import net.miginfocom.swing.MigLayout;
-
 import org.jdesktop.swingx.JXFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
-import com.seaglasslookandfeel.SeaGlassLookAndFeel;
+import javax.swing.*;
 
 public class MyFrameTest {
 	private static final Logger LOG = LoggerFactory
@@ -44,8 +36,6 @@ public class MyFrameTest {
 	@Test(enabled = false)
 	public void showPanel() throws InterruptedException,
 			UnsupportedLookAndFeelException {
-
-		UIManager.setLookAndFeel(new SeaGlassLookAndFeel());
 		JPanel panel = new JPanel();
 		panel.setLayout(new MigLayout());
 		panel.add(new JButton("Clik!"), "grow");

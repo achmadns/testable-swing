@@ -24,12 +24,7 @@ public class FormWrapper<T extends AppForm, C extends Container> implements
 	}
 
 	@Override
-	public void setForm(T form) {
-		this.form = form;
-	}
-
-	@Override
-	public T getForm() {
+	public T form() {
 		return form;
 	}
 

@@ -19,7 +19,7 @@ public class ContactListTest {
 	@Test(groups = "look")
 	public void showFilledPersonBean() {
 		TestLoader<ContactList> loader = load(ContactList.class);
-		PersonBean person = loader.getForm().getPerson();
+		PersonBean person = loader.form().getPerson();
 		person.setFirstName("Achmad");
 		person.setLastName("Nasirudin");
 		person.setPhone("1234456");
@@ -31,7 +31,7 @@ public class ContactListTest {
 		person.setZipCode("12770");
 		person.setCountry("Indonesia");
 		loader.show("Person bean filled");
-		BuildResult buildResult = loader.getForm().getBuildResult();
+		BuildResult buildResult = loader.form().buildResult();
 		JTextField txtFirstName = (JTextField) buildResult.get("txtFirstName");
 		JTextField txtLastName = (JTextField) buildResult.get("txtLastName");
 		assertEquals("Achmad", txtFirstName.getText());

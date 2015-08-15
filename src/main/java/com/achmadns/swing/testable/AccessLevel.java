@@ -5,7 +5,7 @@ public enum AccessLevel {
 			5), READ_AND_WRITE(6), FULL(7);
 	private int level;
 
-	private AccessLevel(int level) {
+	AccessLevel(int level) {
 		this.level = level;
 	}
 
